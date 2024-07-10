@@ -38,7 +38,7 @@ function fnSqlStockList($flg, $param)
             } else {
                 $where .= " OR ";
             }
-            $where .= "RANK = '$value'";
+            $where .= "`RANK` = '$value'";
         }
         $where .= ")";
     }
