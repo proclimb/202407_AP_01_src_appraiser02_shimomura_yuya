@@ -9,7 +9,7 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 			$sql  = "SELECT COUNT(*)";
 			break;
 		case 1:
-			$sql  = "SELECT ARTICLENO, ARTICLE, RO0M, KEYPLACE, ARTICLENOTE, KEYBOX, DRAWING, SELLCHARGE";
+			$sql  = "SELECT ARTICLENO, ARTICLE, ROOM, KEYPLACE, ARTICLENOTE, KEYBOX, DRAWING, SELLCHARGE";
 			break;
 	}
 	$sql .= " FROM TBLARTICLE";
