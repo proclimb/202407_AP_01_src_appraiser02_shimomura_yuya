@@ -188,7 +188,7 @@ function subArticleEdit()
 		$btnImage = 'btn_enter.png';
 	}
 
-	subMenu();
+	subMenu2();
 ?>
 	<script type="text/javascript" src="./js/article.js"></script>
 
