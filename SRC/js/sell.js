@@ -52,7 +52,7 @@ function fnSellEditCheck() {
 		return;
 	}
 	if (tmp.length > 4 || tmp.match(/[^0-9]+/)) {
-		alert('築年は4桁の半角数字で入力してください');
+		alert('築年は4桁以内の半角数字で入力してください');
 		return;
 	}
 
