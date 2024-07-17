@@ -11,13 +11,13 @@ function subSell()
         $param["sDel"] = 1;
     }
 
-    if (! $param["sPage"]) {
+    if (!$param["sPage"]) {
         $param["sPage"] = 1;
     }
 
-    if (! $param["orderBy"]) {
+    if (!$param["orderBy"]) {
         $param["orderBy"] = 'SEARCHDT';
-        $param["orderTo"] = 'desc';
+        $param["orderTo"] = 'DESC';
     }
 
     subMenu();
