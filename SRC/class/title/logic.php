@@ -11,7 +11,7 @@ function subFTitle()
         $param["sDel"] = 1;
     }
 
-    if (! $param["orderBy"]) {
+    if (!$param["orderBy"]) {
         $param["orderBy"] = 'CLASSNO,SEQNO';
         $param["orderTo"] = 'asc';
     }
@@ -31,7 +31,7 @@ function subFTitleItem()
         $param["sDel"] = 1;
     }
 
-    if (! $param["orderBy"]) {
+    if (!$param["orderBy"]) {
         $param["orderBy"] = 'CLASSNO,SEQNO';
         $param["orderTo"] = 'asc';
     }
@@ -94,7 +94,7 @@ function subFTitleEditComplete()
     if ($param["DocNo"]) {
         if ($param["seqNo"] == 0) {
             // タイトルの更新処理
-            if (! $ErrClassNo) {
+            if (!$ErrClassNo) {
                 // 更新前の情報を取得
                 $sql = fnSqlFTitleEdit($param["DocNo"]);
                 $res = mysqli_query($param["conn"], $sql);
@@ -133,9 +133,9 @@ function subFTitleEditComplete()
         }
     } else {
         $param["DocNo"] = fnNextNo('DOC');
-        if (! $param["seqNo"]) {
+        if (!$param["seqNo"]) {
 
-            if (! $ErrClassNo) {
+            if (!$ErrClassNo) {
                 $param["seqNo"] = 0;
                 $sql = fnSqlFTitleInsert($param);
                 $res = mysqli_query($param["conn"], $sql);
@@ -184,15 +184,15 @@ function subFTitleDelete()
         $res = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($res)) {
             $sql = fnSqlFTitleDelete($row['DOCNO']);
-            $result = mysqil_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
         }
+        $_REQUEST['act'] = 'fTitleSearch';
+        subFTitle();
     } else {
         $sql = fnSqlFTitleDelete($DocNo);
         $res = mysqli_query($conn, $sql);
+        subTitlePage1();
     }
-
-    $_REQUEST['act'] = 'fTitleSearch';
-    subFTitle();
 }
 
 //
