@@ -103,7 +103,7 @@ function subAdminUserEdit()
 				<td><input type="text" name="name" value="<?php print $name; ?>" /></td>
 			</tr>
 			<tr>
-				<th>ID</th>
+				<th>ID<span class="red">（必須）</span></th>
 				<td><input type="text" name="id" value="<?php print $id; ?>" /></td>
 			</tr>
 			<tr>
