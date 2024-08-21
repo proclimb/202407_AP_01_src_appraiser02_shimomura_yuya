@@ -151,7 +151,7 @@ if ($_COOKIE['cUserNo'] != '' && $_COOKIE['authority'] != '') {
             // break;
 
         case 'articleDelete':
-            //             subArticleDelete();
+            // subArticleDelete();
             // break;
             article_control();
             break;
