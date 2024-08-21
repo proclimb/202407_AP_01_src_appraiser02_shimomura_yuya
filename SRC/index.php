@@ -16,16 +16,19 @@ require('class/sell/control.php');
 require('class/stock/control.php');
 
 // 物件
-require('libArticle.php');
-require('libDBArticle.php');
+require('class/article/control.php');
+// require('libArticle.php');
+// require('libDBArticle.php');
 
 // 工事
-require('libConst.php');
-require('libDBConst.php');
+require('class/const/control.php');
+// require('libConst.php');
+// require('libDBConst.php');
 
 // 業者
-require('libTrade.php');
-require('libDBTrade.php');
+require('class/trade/control.php');
+// require('libTrade.php');
+// require('libDBTrade.php');
 
 // 案内
 require('class/guide/control.php');
@@ -38,11 +41,13 @@ require('libDBFManager.php');
 require('class/title/control.php');
 
 // 一覧表示件数
+define("PASSWORD_DEFAULT", "2y");
+
 define("PAGE_MAX", 100);
 
 // ログインチェック
 
-define("PASSWORD_DEFAULT", "2y");
+
 switch ($_REQUEST['act']) {
         // ログインチェック
     case 'loginCheck':
@@ -134,52 +139,59 @@ if ($_COOKIE['cUserNo'] != '' && $_COOKIE['authority'] != '') {
             // 物件管理
         case 'article':
         case 'articleSearch':
-            subArticle();
-            break;
+            // subArticle();
+            // break;
 
         case 'articleEdit':
-            subArticleEdit();
-            break;
+            // subArticleEdit();
+            // break;
 
         case 'articleEditComplete':
-            subArticleEditComplete();
-            break;
+            // subArticleEditComplete();
+            // break;
 
         case 'articleDelete':
-            subArticleDelete();
+            //             subArticleDelete();
+            // break;
+            article_control();
             break;
 
             // 工事管理表関連処理
         case 'const':
         case 'constSearch':
-            subConst();
-            break;
+            // subConst();
+            // break;
 
         case 'constEdit':
-            subConstEdit();
-            break;
+            // subConstEdit();
+            // break;
 
         case 'constEditComplete':
-            subConstEditComplete();
+            // subConstEditComplete();
+            // break;
+            const_control();
             break;
 
             // 業者一覧関連処理
         case 'trade':
         case 'tradeSearch':
-            subTrade();
-            break;
-
         case 'tradeEdit':
-            subTradeEdit();
-            break;
-
         case 'tradeEditComplete':
-            subTradeEditComplete();
+        case 'tradeDelete':
+            trade_control();
             break;
 
-        case 'tradeDelete':
-            subTradeDelete();
-            break;
+            // case 'tradeEdit':
+            //     subTradeEdit();
+            //     break;
+
+            // case 'tradeEditComplete':
+            //     subTradeEditComplete();
+            //     break;
+
+            // case 'tradeDelete':
+            //     subTradeDelete();
+            //     break;
 
             // 案内管理関連処理
         case 'guide':
