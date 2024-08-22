@@ -34,8 +34,9 @@ require('class/trade/control.php');
 require('class/guide/control.php');
 
 // ファイルマネージャー
-require('libFManager.php');
-require('libDBFManager.php');
+require('class/fmanager/control.php');
+// require('libFManager.php');
+// require('libDBFManager.php');
 
 // タイトル変更
 require('class/title/control.php');
@@ -209,37 +210,38 @@ if ($_COOKIE['cUserNo'] != '' && $_COOKIE['authority'] != '') {
             // ファイルマネージャ関連処理
         case 'fManager':
         case 'fManagerSearch':
-            subFManager();
-            break;
+            // subFManager();
+            // break;
 
         case 'fManagerEdit':
-            subFManagerEdit();
-            break;
+            // subFManagerEdit();
+            // break;
 
         case 'fManagerEditComplete':
-            subFManagerEditComplete();
-            break;
+            // subFManagerEditComplete();
+            // break;
 
         case 'fManagerDelete':
-            subFManagerDelete();
-            break;
+            // subFManagerDelete();
+            // break;
 
         case 'fManagerView':
-            subFManagerView();
-            break;
+            // subFManagerView();
+            // break;
 
         case 'fManagerViewEdit':
-            subFManagerViewEdit();
-            break;
+            // subFManagerViewEdit();
+            // break;
 
         case 'fManagerViewEditComplete':
-            subFManagerViewEditComplete();
-            break;
+            // subFManagerViewEditComplete();
+            // break;
 
         case 'fManagerViewDelete':
-            subFManagerViewDelete();
+            // subFManagerViewDelete();
+            // break;
+            fmanager_control();
             break;
-
             // タイトル管理関連処理
         case 'fTitle':
         case 'fTitleSearch':
