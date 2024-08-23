@@ -2,64 +2,26 @@
 //仕入管理チェック
 //
 function fnStockEditCheck() {
-	tmp = form.charge.value;
-	if (tmp.length > 100) {
-		alert('担当は100文字以内で入力してください');
-		return;
-	}
+	if (isLength(100, "担当", form.charge)) { return; }
 
 	tmp = form.article.value;
 	if (tmp.length == 0 || !tmp.trim()) {
 		alert('物件名を入力してください');
 		return;
 	}
-	if (tmp.length > 100) {
-		alert('物件名は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.articleFuri.value;
-	if (tmp.length > 100) {
-		alert('物件名（よみ）は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.room.value;
-	if (tmp.length > 100) {
-		alert('部屋は100文字以内で入力してください');
-		return;
-	}
+	if (isLength(100, "物件名", form.article)) { return; }
+	if (isLength(100, "物件名（よみ）", form.articleFuri)) { return; }
+	if (isLength(100, "部屋", form.room)) { return; }
 
 	tmp = form.area.value;
 	if (tmp.length > 0 && !tmp.match(/^([1-9][0-9]{0,2}|0)(\.[0-9][0-9]|\.[0-9])?$/)) {
 		alert('面積は3桁以内（小数点以下2桁以内）の半角数字で入力してください');
 		return;
 	}
-
-	tmp = form.station.value;
-	if (tmp.length > 100) {
-		alert('最寄駅は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.agent.value;
-	if (tmp.length > 100) {
-		alert('業者名は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.store.value;
-	if (tmp.length > 100) {
-		alert('店舗名は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.cover.value;
-	if (tmp.length > 100) {
-		alert('担当者は100文字以内で入力してください');
-		return;
-	}
-
+	if (isLength(100, "最寄駅", form.station)) { return; }
+	if (isLength(100, "業者名", form.agent)) { return; }
+	if (isLength(100, "店舗名", form.store)) { return; }
+	if (isLength(100, "担当者", form.cover)) { return; }
 	if (!fnYMDCheck("正しい内見日付", form.visitDT)) { return; }
 
 	tmp = form.deskPrice.value;
@@ -73,13 +35,7 @@ function fnStockEditCheck() {
 		alert('売主希望金額は5桁以内の半角数字で入力してください');
 		return;
 	}
-
-	tmp = form.note.value;
-	if (tmp.length > 1000) {
-		alert('備考は1000文字以内で入力してください');
-		return;
-	}
-
+	if (isLength(1000, "備考", form.note)) { return; }
 	if (confirm('この内容で登録します。よろしいですか？')) {
 		form.act.value = 'stockEditComplete';
 		form.submit();
