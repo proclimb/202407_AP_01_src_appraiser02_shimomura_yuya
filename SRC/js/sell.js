@@ -15,27 +15,15 @@ function fnSellEditCheck() {
 		alert('物件名を入力してください');
 		return;
 	}
-	if (tmp.length > 100) {
-		alert('物件名は100文字以内で入力してください');
-		return;
-	}
+	if (isLength(100, "物件名", form.article)) { return; }
 
 	tmp = form.address.value;
 	if (tmp.length == 0) {
 		alert('住所を入力してください');
 		return;
 	}
-	if (tmp.length > 100) {
-		alert('住所は100文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.station.value;
-	if (tmp.length > 100) {
-		alert('駅は100文字以内で入力してください');
-		return;
-	}
-
+	if (isLength(100, "住所", form.address)) { return; }
+	if (isLength(100, "駅", form.station)) { return; }
 	tmp = form.foot.value;
 	if (tmp.length == 0) {
 		alert('徒歩を入力してください');
@@ -81,10 +69,7 @@ function fnSellEditCheck() {
 		alert('売主を入力してください');
 		return;
 	}
-	if (tmp.length > 100) {
-		alert('売主は100文字以内で入力してください');
-		return;
-	}
+	if (isLength(100, "売主", form.seller)) { return; }
 
 	tmp = form.price.value;
 	if (tmp.length == 0) {
@@ -95,12 +80,7 @@ function fnSellEditCheck() {
 		alert('価格は5桁以内の半角数字で入力してください');
 		return;
 	}
-
-	tmp = form.note.value;
-	if (tmp.length > 200) {
-		alert('備考は200文字以内で入力してください');
-		return;
-	}
+	if (isLength(200, "備考", form.note)) { return; }
 
 	if (confirm('この内容で登録します。よろしいですか？')) {
 		form.act.value = 'sellEditComplete';
