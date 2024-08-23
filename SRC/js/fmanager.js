@@ -2,11 +2,7 @@
 //ファイルマネージャー物件管理チェック
 //
 function fnFManagerEditCheck() {
-	tmp = form.name.value;
-	if (tmp.length == 0) {
-		alert('物件名を入力してください');
-		return;
-	}
+	if (LengthCheck("物件名", form.article)) { return; }
 	if (isLength(50, "物件名", form.name)) { return; }
 	if (isLength(50, "部屋", form.room)) { return; }
 	if (isLength(100, "備考", form.note)) { return; }

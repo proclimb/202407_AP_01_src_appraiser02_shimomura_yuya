@@ -53,8 +53,40 @@ function isLength(length, msg, obj) {
  */
 function isNumericLength(length, msg, obj) {
 	rtn = false;
-	if (obj.value.length > 9 || obj.value.match(/[^0-9]+/)) {
+	if (obj.value.length > length || obj.value.match(/[^0-9]+/)) {
 		alert(msg + "は" + length + "桁以内の半角数字で入力してください");
+		rtn = true;
+	}
+	return rtn;
+}
+
+/**
+ * 面積入力桁数チェック
+ *
+ * @param msg    エラー時に表示したい項目名
+ * @param obj    チェックしたい項目
+ * @return true:異常、false:正常
+ */
+function AreaCheck(msg, obj) {
+	rtn = false;
+	if (obj.value.length > 0 && !obj.value.match(/^([0-9]{1,3})(\.[0-9]{1,2})?$/)) {
+		alert(msg + "は3桁以内（小数点以下2桁以内）の半角数字で入力してください");
+		rtn = true;
+	}
+	return rtn;
+}
+
+/**
+ * 必須項目入力チェック
+ *
+ * @param msg    エラー時に表示したい項目名
+ * @param obj    チェックしたい項目
+ * @return true:異常、false:正常
+ */
+function LengthCheck(msg, obj) {
+	rtn = false;
+	if (obj.value.length == 0) {
+		alert(msg + "を入力して下さい");
 		rtn = true;
 	}
 	return rtn;

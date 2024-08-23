@@ -2,11 +2,7 @@
 //業者一覧チェック
 //
 function fnTradeEditCheck() {
-	tmp = form.name.value;
-	if (tmp.length == 0) {
-		alert('業者名を入力してください');
-		return;
-	}
+	if (LengthCheck("業者名", form.name)) { return; }
 	if (isLength(100, "業者名", form.name)) { return; }
 	if (isLength(100, "業者名（よみ）", form.nameFuri)) { return; }
 	if (isLength(100, "支店名", form.branch)) { return; }
