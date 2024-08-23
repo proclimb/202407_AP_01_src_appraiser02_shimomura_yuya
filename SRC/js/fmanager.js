@@ -7,23 +7,9 @@ function fnFManagerEditCheck() {
 		alert('物件名を入力してください');
 		return;
 	}
-	if (tmp.length > 50) {
-		alert('物件名は50文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.room.value;
-	if (tmp.length > 50) {
-		alert('部屋は50文字以内で入力してください');
-		return;
-	}
-
-	tmp = form.note.value;
-	if (tmp.length > 100) {
-		alert('備考は100文字以内で入力してください');
-		return;
-	}
-
+	if (isLength(50, "物件名", form.name)) { return; }
+	if (isLength(50, "部屋", form.room)) { return; }
+	if (isLength(100, "備考", form.note)) { return; }
 	if (confirm('この内容で登録します。よろしいですか？')) {
 		form.act.value = 'fManagerEditComplete';
 		form.submit();
@@ -44,12 +30,7 @@ function fnFManagerDeleteCheck(no) {
 //ファイルマネージャー書類チェック
 //
 function fnFManagerViewEditCheck() {
-	tmp = form.note.value;
-	if (tmp.length > 100) {
-		alert('備考は100文字以内で入力してください');
-		return;
-	}
-
+	if (isLength(100, "備考", form.note)) { return; }
 	tmp = form.pdfFile.value;
 	if (tmp.slice(-4) != '.pdf' && tmp.slice(-4) != '.PDF') {
 		alert('PDFファイルを指定してください');
